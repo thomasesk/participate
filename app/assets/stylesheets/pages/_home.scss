@@ -5,17 +5,17 @@
   justify-content: space-around;
 }
 
-.home-content {
+.home-content-1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.home-content p {
+.home-content-1 p {
   color: white;
   font-size: 36px;
 }
 
-btn-home {
-  color: white;
+.btn-home {
+  margin-top: 40px;
 }
