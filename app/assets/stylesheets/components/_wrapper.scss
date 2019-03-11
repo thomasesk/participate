@@ -2,10 +2,11 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 100vh;
+  height: calc(100vh - 70px);
   width: 100vw, !important;
 }
 
 .wrapper-home {
-    margin-top: -86px;
+    margin-top: -70px;
+    height: 100vh;
 }
