@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="wrapper content", style="background-image: url(<%= asset_path 'home-wrapper.png' %>) ">
+  <div class="home-content">
+      <p>Simple</p>
+      <p>Impactful</p>
+      <p>Transparent</p>
+      <p><strong>Donations as it should be</strong></p>
+      <%= link_to "Deviens génial", root_path, class: "btn-home btn-ghost" %>
+  </div>
+</div>
