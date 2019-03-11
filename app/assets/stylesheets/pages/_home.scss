@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.home-content-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-content-1 p {
+  color: white;
+  font-size: 36px;
+}
+
+.btn-home {
+  margin-top: 40px;
+}
