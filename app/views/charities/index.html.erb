@@ -1,42 +1,61 @@
-<div class="wrapper", style="background-color: white">
-  <div class="container">
-    <div class="search_icon">
-      <i class="fas fa-search"></i>
-      <div class="searchbar">
-        <%= form_tag charities_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Look for a charity" %>
-        <% end %>
+<div class="container">
+  <div class="search_icon">
+    <i class="fas fa-search"></i>
+    <div class="searchbar">
+      <%= form_tag charities_path, method: :get do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Look for a charity" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'education.jpg' %>);">
+        <div class="card-description">
+          <h2>Education</h2>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'education.jpg' %>);">
-          <div class="card-description">
-            <h2>Education</h2>
-          </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'environment.jpg' %>);">
+        <div class="card-description">
+          <h2>Environment</h2>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'environment.jpg' %>);">
-          <div class="card-description">
-            <h2>Environment</h2>
-          </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'insertion.jpg' %>);">
+        <div class="card-description">
+          <h2>Insertion</h2>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'insertion.jpg' %>);">
-          <div class="card-description">
-            <h2>Insertion</h2>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'health.jpg' %>);">
-          <div class="card-description">
-            <h2>Health</h2>
-          </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'health.jpg' %>);">
+        <div class="card-description">
+          <h2>Health</h2>
         </div>
       </div>
     </div>
   </div>
+      <div class="cards">
+        <div class="row" style='margin-top: 30px;'>
+        <% @charities.each do |charity| %>
+        <div class="col-sm-12 col-md-6">
+          <%= link_to charity_path(charity) do %>
+            <div class="card-charity">
+              <%= cl_image_tag charity.photo, class: 'charity-img' %>
+              <div class="card-charity-infos">
+                <div>
+                  <h2><%= charity.name %></h2>
+                  <p><%= charity.description %></p>
+                </div>
+                <span class="badge badge-pill"><%= charity.category %> </span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+
