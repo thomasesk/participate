@@ -1,18 +1,23 @@
-<h2>Forgot your password?</h2>
+<div class="wrapper wrapper-home content", style="background-image: url(<%= asset_path 'home-wrapper.png' %>)">
+  <div class="sign-content">
+    <h2 class="form-title"><strong>Mot de Passe Oublié ?</strong></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+      </div>
+
+      <div class="form-actions form-btns">
+        <%= f.button :submit, "Send me reset password instructions", class: 'btn-ghost btn-form' %>
+        <div class="secondary-link">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
