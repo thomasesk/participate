@@ -1,5 +1,5 @@
 .card {
-  height: 175px;
+  height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -15,4 +15,64 @@
 
 .card-description h2 {
   font-size: 24px;
+}
+
+.card-charity {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 20px 0px;
+}
+
+.charity-img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-charity h2 {
+  font-size: 16px;
+  font-weight: bolder;
+  margin: 0;
+  text-align: left;
+  color: rgb(246, 198, 198);
+}
+
+.card-charity p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  text-align: left;
+  font-style: italic;
+  text-decoration: none;
+  color: rgb(150, 150, 150);
+}
+
+
+.card-charity .card-charity-infos {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-charity-infos .card-charity-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.badge-pill {
+  color: white;
+  background-color: rgb(246, 198, 198);
+}
+
+.cards a {
+  text-decoration: none;
+}
+
+.cards a:hover {
+  opacity: 0.7;
 }
