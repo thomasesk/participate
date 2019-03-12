@@ -1,7 +1,9 @@
 <div class="wrapper", style="background-color: white">
   <div class="container">
     <div class="searchbar">
-      Ici placer la search bar (à gauche plutôt)
+      <%= form_tag charities_path, method: :get do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Look for a charity" %>
+      <% end %>
     </div>
     <div class="row">
       <div class="col-sm-12 col-lg-6">
