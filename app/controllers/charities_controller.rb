@@ -6,7 +6,16 @@ class CharitiesController < ApplicationController
   end
 
   def index
-    @charities = Charity.all
+    if params[:query].present?
+      sql_query = " \
+        charities.name @@ :query \
+        OR charities.category @@ :query \
+        OR charities.description @@ :query \
+      "
+      @charities = Charity.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @charities = Charity.all
+    end
   end
 
   def show
