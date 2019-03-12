@@ -1,0 +1,15 @@
+.btn-photo {
+  background-color: rgb(246, 198, 198);
+  border: 2px solid white;
+  padding: 8px 24px;
+  border-radius: 2px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  margin-top: 20px;
+  margin-bottom: -50px;
+  cursor: pointer;
+}
+
+.input-photo {
+  opacity: 0;
+}
