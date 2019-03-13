@@ -35,7 +35,7 @@
   font-weight: bolder;
   margin: 0;
   text-align: left;
-  color: rgb(246, 198, 198);
+  color: $secondary;
 }
 
 .card-charity p {
@@ -45,7 +45,8 @@
   text-align: left;
   font-style: italic;
   text-decoration: none;
-  color: rgb(150, 150, 150);
+  color: black;
+  padding-top: 10px;
 }
 
 
@@ -66,7 +67,7 @@
 
 .badge-pill {
   color: white;
-  background-color: rgb(246, 198, 198);
+  background-color: $secondary;
 }
 
 .cards a {

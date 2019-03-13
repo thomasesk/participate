@@ -18,3 +18,28 @@
   opacity: .95;
   font-weight: bold;
 }
+
+.btn-ghost-2 {
+  color: $secondary;
+  border: 2px solid $secondary;
+  padding: 8px 24px;
+  border-radius: 50px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost-2:hover {
+  text-decoration: none;
+  opacity: 1;
+  font-weight: bold;
+  color: $secondary;
+}
+
+.secondary-link {
+  text-decoration: underline;
+  margin-top: 20px;
+}
+
+.secondary-link a {
+  color: white;
+}

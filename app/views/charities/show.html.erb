@@ -1,20 +1,21 @@
 <div class="photos">
-  <%= cl_image_tag @charity.photo[1] %>
-  <%= cl_image_tag @charity.photo[2] %>
-  <%= cl_image_tag @charity.photo[3] %>
-
+  <%= cl_image_tag(@charity.photo[1], crop: :fill, class: "picture-show") %>
+  <%= cl_image_tag(@charity.photo[2], crop: :fill, class: "picture-show") %>
+  <%= cl_image_tag(@charity.photo[3], crop: :fill, class: "picture-show") %>
 </div>
-<div class="caracteristics">
-  Display main caracteristic of the charity
+<div class="container">
+  <div class="header-show">
+    <div class="charity-name">
+      <p><%= @charity.name %></p>
+    </div>
+    <span class="badge badge-pill badge-suivre"><%= @charity.category %> </span>
+    <%= link_to "Suivre", root_path, class: "btn-ghost-2" %>
+  </div>
+  <div class="caracteristics">
+    <p><%= @charity.description %></p>
+  </div>
+  <%= cl_video_tag(@charity.photo[4], :controls => true, :poster => false, class: "video") %>
+  <div class="footer-show">
+    <%= link_to 'Présentation complète', "https://res.cloudinary.com/dbr1bhlka/image/upload/v1552491903/Presentation-Art-of-Change-21-compressed.pdf", target: :_blank, class: "btn-ghost-2" %>
+  </div>
 </div>
-<div class="video">
-  Video presentation of the charity
-</div>
-<div class="content">
-  Details about the NGO and its goal
-</div>
-<div class="buttons">
-  link to follow
-  link to discover the charity website
-</div>
-

@@ -1,9 +1,9 @@
 <div class="container">
   <div class="search_icon">
-    <i class="fas fa-search"></i>
-    <div class="searchbar">
+<!--     <i class="fas fa-search"></i>
+ -->    <div class="searchbar">
       <%= form_tag charities_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Look for a charity" %>
+      <%= text_field_tag :query, params[:query], class: "form-control research", placeholder: "Search" %>
       <% end %>
     </div>
   </div>
@@ -43,11 +43,11 @@
         <div class="col-sm-12 col-md-6">
           <%= link_to charity_path(charity) do %>
             <div class="card-charity">
-              <%= cl_image_tag charity.photo, class: 'charity-img' %>
+              <%= cl_image_tag charity.photo[1], class: 'charity-img' %>
               <div class="card-charity-infos">
                 <div>
                   <h2><%= charity.name %></h2>
-                  <p><%= charity.description %></p>
+                  <p><%= charity.description.split(".")[0] %></p>
                 </div>
                 <span class="badge badge-pill"><%= charity.category %> </span>
               </div>
