@@ -8,10 +8,18 @@
         <h3>Mon Plan</h3>
       </a>
     </div>
-  </div>
-  <div class="cards-show">
-    <span>travailler sur le modele donation</span>
-
+    <div class="row cards-dashboard">
+      <% current_user.donations.each do |donation| %>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="card-dashboard">
+            <%= cl_image_tag(donation.charity.photo[0], class: 'dashboard-img') %>
+            <div class="title">
+              <%= donation.charity.name %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
