@@ -1,0 +1,44 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  height: 7vh;
+}
+
+.tabs a {
+  color: white;
+}
+
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: $secondary;
+  opacity: 0.6;
+  flex: 0 0 25%;
+  text-align: center;
+  padding: auto;
+}
+.tab:first-child {
+  border-radius: 2px 0px 0px 2px;
+}
+
+.tab:last-child {
+  border-radius: 0px 2px 2px 0px;
+}
+
+.tab.active {
+  background: $secondary;
+  color: white;
+  opacity: 1;
+}

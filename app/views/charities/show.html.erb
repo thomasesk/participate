@@ -9,8 +9,14 @@
       <p><%= @charity.name %></p>
     </div>
     <span class="badge badge-pill badge-suivre"><%= @charity.category %> </span>
-    <%= link_to "Suivre", user_path(current_user.id), class: "btn-ghost-2" %>
+
+    <!-- Création d'une donation quand le user appuie sur Suivre -->
+    <%= simple_form_for ([@charity, @donation]) do |f| %>
+      <%= f.submit "Suivre", class: "btn-ghost-2" %>
+    <% end %>
+
   </div>
+
   <div class="caracteristics">
     <p><%= @charity.description %></p>
   </div>
