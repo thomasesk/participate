@@ -19,6 +19,7 @@ class CharitiesController < ApplicationController
   end
 
   def show
+    @donation = Donation.new
     @user = current_user
   end
 
