@@ -13,6 +13,8 @@ class CharitiesController < ApplicationController
         OR charities.description @@ :query \
       "
       @charities = Charity.where(sql_query, query: "%#{params[:query]}%")
+    elsif params[:category].present?
+      @charities = Charity.where(category: params[:category])
     else
       @charities = Charity.all
     end
