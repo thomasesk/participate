@@ -6,7 +6,6 @@ class DonationsController < ApplicationController
   end
 
   def index
-    @donations = Donation.all.where(params[:id] == curent_user.id)
   end
 
   def show
