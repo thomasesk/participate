@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="min-height: calc(100vh - 170px);">
   <div class="search_icon">
 <!--     <i class="fas fa-search"></i>
  -->    <div class="searchbar">
@@ -7,34 +7,42 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
+  <div class="row charities_link">
     <div class="col-sm-12 col-md-6 col-lg-3">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'education.jpg' %>);">
-        <div class="card-description">
-          <h2>Education</h2>
+      <%= link_to charities_path(category: "Education") do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'education.jpg' %>);">
+          <div class="card-description">
+            <h2>Education</h2>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-3">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'environment.jpg' %>);">
-        <div class="card-description">
-          <h2>Environment</h2>
+      <%= link_to charities_path(category: "Environment") do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'environment.jpg' %>);">
+          <div class="card-description">
+            <h2>Environment</h2>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-3">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'insertion.jpg' %>);">
-        <div class="card-description">
-          <h2>Insertion</h2>
+      <%= link_to charities_path(category: "Insertion") do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'insertion.jpg' %>);">
+          <div class="card-description">
+            <h2>Insertion</h2>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-3">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'health.jpg' %>);">
-        <div class="card-description">
-          <h2>Health</h2>
+      <%= link_to charities_path(category: "Health") do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'health.jpg' %>);">
+          <div class="card-description">
+            <h2>Health</h2>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
       <div class="cards">
