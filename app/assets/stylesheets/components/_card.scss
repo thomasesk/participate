@@ -80,9 +80,23 @@
 
 .card-dashboard {
   height: 50vh;
-  border: 1px solid grey;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  padding: 20px;
+  margin-top: 50px;
+  border-bottom: 10px solid #5394F5;
 }
 
 .cards-dashboard {
   margin: 10px;
 }
+
+// .card-dashboard-footer {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-around;
+// }
