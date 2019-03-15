@@ -16,10 +16,10 @@
       <% exist += 1 if donation.charity == @charity %>
     <% end %>
     <% if exist != 0 %>
-      <%= link_to "Dashboard 😍", user_path(current_user), class: "btn-ghost-2" %>
+      <%= link_to "Dashboard 😎", user_path(current_user), class: "btn-ghost-2" %>
     <% else %>
       <%= simple_form_for ([@charity, @donation]) do |f| %>
-        <%= f.submit "Suivre 😎", class: "btn-ghost-2" %>
+        <%= f.submit "Suivre 😍", class: "btn-ghost-2" %>
       <% end %>
     <% end %>
   </div>
