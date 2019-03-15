@@ -43,3 +43,26 @@
 .secondary-link a {
   color: white;
 }
+
+.btn-ghost-2-all {
+  color: $secondary;
+  border: 2px solid $secondary;
+  padding: 2px 7px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  margin-right: 60px;
+}
+
+.btn-ghost-2-all:hover {
+  color: $secondary;
+  border: 2px solid $secondary;
+  padding: 2px 7px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  background-color: rgb(246, 166, 150);
+  color: white;
+  text-decoration: none;
+  margin-right: 60px;
+}
