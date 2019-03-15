@@ -15,6 +15,7 @@
             <%= cl_image_tag(donation.charity.photo[0], class: 'dashboard-img') %>
             <div class="title">
               <%= donation.charity.name %>
+              <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn-ghost-2' %>
             </div>
           </div>
         </div>

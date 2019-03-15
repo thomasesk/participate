@@ -11,10 +11,17 @@
     <span class="badge badge-pill badge-suivre"><%= @charity.category %> </span>
 
     <!-- Création d'une donation quand le user appuie sur Suivre -->
-    <%= simple_form_for ([@charity, @donation]) do |f| %>
-      <%= f.submit "Suivre", class: "btn-ghost-2" %>
+    <% exist = 0 %>
+    <% current_user.donations.each do |donation| %>
+      <% exist += 1 if donation.charity == @charity %>
     <% end %>
-
+    <% if exist != 0 %>
+      <%= link_to "Dashboard 😍", user_path(current_user), class: "btn-ghost-2" %>
+    <% else %>
+      <%= simple_form_for ([@charity, @donation]) do |f| %>
+        <%= f.submit "Suivre 😎", class: "btn-ghost-2" %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="caracteristics">
