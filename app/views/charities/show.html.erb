@@ -23,7 +23,7 @@
   <div class="bottom_details">
     <%= cl_video_tag(@charity.photo[4], :controls => true, :poster => false, class: "video") %>
     <div class="footer-show">
-      <%= link_to 'Présentation complète', "https://res.cloudinary.com/dbr1bhlka/image/upload/v1552491903/Presentation-Art-of-Change-21-compressed.pdf", target: :_blank, class: "btn-ghost-2" %>
+      <%= link_to 'Présentation complète', @charity.photo[5], target: :_blank, class: "btn-ghost-2" %>
     </div>
   </div>
 </div>
