@@ -4,7 +4,9 @@
       <p>Impactful</p>
       <p>Transparent</p>
       <p><strong>Donations as it should be</strong></p>
-      <%= link_to "Deviens génial", new_user_registration_path, class: "btn-home btn-ghost" %>
+      <% unless user_signed_in? %>
+        <%= link_to "Deviens génial", new_user_registration_path, class: "btn-home btn-ghost" %>
+      <% end %>
   </div>
 </div>
 <div class="wrapper", style="background-image: url(<%= asset_path 'wraper1-home.png' %>); height: 115vh;">
