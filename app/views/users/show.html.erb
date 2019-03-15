@@ -2,10 +2,10 @@
   <div class="container">
     <div class="tabs">
       <a class="tab active" href="#">
-        <h3>Mes ONGs</h3>
+        <h3>Mon Dashboard</h3>
       </a>
       <a class="tab" href="#">
-        <h3>Mon Plan</h3>
+        <h3>Mon Historique</h3>
       </a>
     </div>
     <div class="row cards-dashboard">
@@ -15,6 +15,7 @@
             <%= cl_image_tag(donation.charity.photo[0], class: 'dashboard-img') %>
             <div class="title">
               <%= donation.charity.name %>
+              <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn-ghost-2' %>
             </div>
           </div>
         </div>

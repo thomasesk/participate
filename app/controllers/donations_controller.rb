@@ -25,4 +25,9 @@ class DonationsController < ApplicationController
       render :index
     end
   end
+
+  def destroy
+    @donation.destroy
+    redirect_to user_path(current_user.id)
+  end
 end
