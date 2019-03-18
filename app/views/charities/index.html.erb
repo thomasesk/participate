@@ -7,46 +7,86 @@
           <% end %>
       </div>
       <div class="all">
-          <% if params[:query].present? or params[:category].present? %>
+          <% if params[:query].present? %>
             <%= link_to "X", charities_path, class: "btn-ghost-2-all"%>
           <% end %>
       </div>
     </div>
     <!-- <div class="row charities_link"> -->
-      <div class="col-sm-10 col-md-4 col-lg-2 charities_link">
-        <%= link_to charities_path(category: "Education") do %>
-          <div class="card card_filter education">
-            <div class="card-description">
-              <h2>Education</h2>
+      <div class="col-sm-10 col-md-4 col-lg-2 charities_link charities_link_education">
+        <% if params[:category] == "Education" %>
+          <%= link_to charities_path do %>
+            <div class="card card_filter education active">
+              <div class="card-description">
+                <h2>Education</h2>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <%= link_to charities_path(category: "Education") do %>
+            <div class="card card_filter education">
+              <div class="card-description">
+                <h2>Education</h2>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <div class="col-sm-10 col-md-4 col-lg-2 charities_link">
-        <%= link_to charities_path(category: "Environment") do %>
-          <div class="card card_filter environment">
-            <div class="card-description">
-              <h2>Environment</h2>
+      <% if params[:category] == "Environment" %>
+          <%= link_to charities_path do %>
+            <div class="card card_filter environment active">
+              <div class="card-description">
+                <h2>Environment</h2>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <%= link_to charities_path(category: "Environment") do %>
+            <div class="card card_filter environment">
+              <div class="card-description">
+                <h2>Environment</h2>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <div class="col-sm-10 col-md-4 col-lg-2 charities_link">
-        <%= link_to charities_path(category: "Insertion") do %>
-          <div class="card card_filter insertion">
-            <div class="card-description">
-              <h2>Insertion</h2>
+        <% if params[:category] == "Insertion" %>
+          <%= link_to charities_path do %>
+            <div class="card card_filter insertion active">
+              <div class="card-description">
+                <h2>Insertion</h2>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <%= link_to charities_path(category: "Insertion") do %>
+            <div class="card card_filter insertion">
+              <div class="card-description">
+                <h2>Insertion</h2>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <div class="col-sm-10 col-md-4 col-lg-2 charities_link">
-        <%= link_to charities_path(category: "Health") do %>
-          <div class="card card_filter health">
-            <div class="card-description">
-              <h2>Health</h2>
+        <% if params[:category] == "Health" %>
+          <%= link_to charities_path do %>
+            <div class="card card_filter health active">
+              <div class="card-description">
+                <h2>Health</h2>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <%= link_to charities_path(category: "Health") do %>
+            <div class="card card_filter health">
+              <div class="card-description">
+                <h2>Health</h2>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
