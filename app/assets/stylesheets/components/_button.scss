@@ -66,3 +66,19 @@
   text-decoration: none;
   margin-right: 60px;
 }
+
+.btn-card-user {
+  color: $secondary;
+  text-decoration: underline;
+  border: none;
+}
+
+.btn-form-user {
+  background-color: $secondary;
+  color: white;
+  border-radius: 3px;
+}
+
+.btn-form-user-cancel {
+  background-color: #DB6C79;
+}

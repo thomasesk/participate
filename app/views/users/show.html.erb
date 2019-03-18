@@ -44,13 +44,17 @@
               <div class="title">
                 <%= donation.charity.name %>
               </div>
-              <div class="range-card">
-                <div class="value">0</div>
-                <input type="range" min="0" max="100" step="5" value="0">
-              </div>
+              <%= simple_form_for [@user, donation] do |f| %>
+                <div class="value", style="margin-left: 17px"></div>
+                <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max:"100", step:"5" } %>
+                <div class="form-btns">
+                  <%= f.button :submit, "Update", class: "btn-form-user" %>
+                  <%= link_to "X", user_path(current_user), class: 'btn btn-danger' %>
+                </div>
+              <% end %>
 
               <!-- Button trigger modal -->
-              <button type="button" class="btn-ghost-2" data-toggle="modal" data-target="#exampleModalCenter">
+              <button type="button" class="btn-card-user" data-toggle="modal" data-target="#exampleModalCenter">
                 Unfollow
               </button>
 
@@ -68,8 +72,7 @@
                       Thank you so much <i class="fas fa-heart" style='color:red;'></i>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete, class: 'btn-ghost-2' %>
+                      <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete %>
                     </div>
                   </div>
                 </div>
