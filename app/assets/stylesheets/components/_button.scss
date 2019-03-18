@@ -29,10 +29,12 @@
 }
 
 .btn-ghost-2:hover {
+  border:none;
   text-decoration: none;
   opacity: 1;
   font-weight: bold;
-  color: $secondary;
+  color: white;
+  background-image: image-url('home-wrapper.png');
 }
 
 .secondary-link {
