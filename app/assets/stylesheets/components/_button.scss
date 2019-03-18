@@ -34,7 +34,7 @@
   opacity: 1;
   font-weight: bold;
   color: white;
-  background-image: image-url('home-wrapper.png');
+  background-color: $secondary;
 }
 
 .secondary-link {
@@ -53,7 +53,8 @@
   border-radius: 50%;
   opacity: 0.8;
   transition: opacity 0.3s ease;
-  margin-right: 60px;
+  margin-right: 75px;
+  font-size: 15px;
 }
 
 .btn-ghost-2-all:hover {
@@ -63,8 +64,19 @@
   border-radius: 50%;
   opacity: 0.8;
   transition: opacity 0.3s ease;
-  background-image: image-url('home-wrapper.png');
+  background-color: $secondary;
   color: white;
   text-decoration: none;
-  margin-right: 60px;
+  margin-right: 75px;
+}
+
+.btn-ghost-2-select {
+  color: $secondary;
+  border: 2px solid $secondary;
+  padding: 0px 5px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  margin-right: 75px;
+  font-size: 15px;
 }
