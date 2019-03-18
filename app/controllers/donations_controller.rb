@@ -31,6 +31,7 @@ class DonationsController < ApplicationController
 
   def update
     @donation.update(donation_params)
+    @donation.save
     redirect_to user_path(current_user.id)
   end
 

@@ -1,11 +1,15 @@
-var elem = document.querySelector('input[type="range"]');
+var elems = document.querySelectorAll('input[type="range"]');
 
-var rangeValue = function(){
+var rangeValue = function(event){
+  var elem = event.currentTarget
   var newValue = elem.value;
-  var target = document.querySelector('.value');
+  var target = document.getElementById(`value-${elem.dataset.donation}`);
   target.innerHTML = newValue;
 }
 
-elem.addEventListener("input", rangeValue);
+var initInput = function() {
+  elems.forEach((elem) => {
+  elem.addEventListener("input", rangeValue);
+})}
 
-export { rangeValue };
+export { initInput };
