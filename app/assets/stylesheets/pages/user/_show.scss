@@ -6,3 +6,15 @@
   margin-bottom: 10px;
 }
 
+.success-patch {
+  background-color: $secondary;
+  border-radius: 3%;
+  color: white;
+  width: 90px;
+}
+
+.progress-success {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0px -10px 0px;
+}
