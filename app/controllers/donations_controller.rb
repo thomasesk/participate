@@ -26,8 +26,23 @@ class DonationsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @donation.update(donation_params)
+    @donation.save
+    redirect_to user_path(current_user.id)
+  end
+
   def destroy
     @donation.destroy
     redirect_to user_path(current_user.id)
+  end
+
+  private
+
+  def donation_params
+    params.require(:donation).permit(:share)
   end
 end

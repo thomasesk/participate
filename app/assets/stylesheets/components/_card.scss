@@ -80,20 +80,32 @@
 }
 
 .card-dashboard {
-  height: 50vh;
-  // text-shadow: 0 1px 1px rgba(0,0,0,0.6);
-  font-weight: bold;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  background-size: cover !important;
-  background-position: center;
   color: $secondary;
   padding: 20px;
   margin-top: 50px;
-  border-bottom: 10px solid #5394F5;
 }
 
 .cards-dashboard {
   margin: 10px;
+}
+
+.card-dashboard-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card-dashboard-footer .title {
+  font-size: 18px;
+  margin: 10px 0px -10px 0px;
+  font-weight: bold;
+  text-decoration: none;
+  color: $secondary;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .card_filter {
@@ -121,3 +133,4 @@
 //   align-items: center;
 //   justify-content: space-around;
 // }
+

@@ -1,4 +1,4 @@
 import "bootstrap";
-import { rangeValue } from '../plugins/rangebar';
+import { initInput } from '../plugins/rangebar';
 
-rangeValue();
+initInput();

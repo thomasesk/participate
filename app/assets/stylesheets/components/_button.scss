@@ -80,3 +80,21 @@
   margin-right: 75px;
   font-size: 15px;
 }
+
+.btn-card-user {
+  color: $secondary;
+  text-decoration: underline;
+  border: none;
+}
+
+.btn-form-user {
+  background-color: $secondary;
+  color: white;
+  border-radius: 3px;
+  opacity: 0.8;
+}
+
+.btn-form-user:hover {
+  opacity: 1;
+  color: white;
+}
