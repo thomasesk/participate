@@ -10,10 +10,10 @@
     </div>
     <div class="progress">
       <% total = 0 %>
-      <% color = ["#F1F06E", "#89FDD8", "#2AE6FF", "#FFBF27"]%>
+      <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
       <% @donations.each_with_index do |donation, index| %>
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
         <% total += donation.share %>
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
       <% end %>
       <% if total > 100 %>
         <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 1000000%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
@@ -55,7 +55,7 @@
               <div>
                 <%= simple_form_for [@user, donation] do |f| %>
                   <div class="value" id="value-<%= donation.id %>" style="margin-left: 13px"><%= donation.share %></div>
-                  <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max:"100", step:"5", data: {donation: donation.id } } %>
+                  <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - total + donation.share), step:"5", data: {donation: donation.id } } %>
                   <div class="form-btns">
                     <%= f.button :submit, "Update", class: "btn-form-user" %>
                     <%= link_to "X", user_path(current_user), class: 'btn btn-danger' %>
