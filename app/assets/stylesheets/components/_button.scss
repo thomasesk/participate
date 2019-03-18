@@ -29,10 +29,12 @@
 }
 
 .btn-ghost-2:hover {
+  border:none;
   text-decoration: none;
   opacity: 1;
   font-weight: bold;
-  color: $secondary;
+  color: white;
+  background-color: $secondary;
 }
 
 .secondary-link {
@@ -47,7 +49,7 @@
 .btn-ghost-2-all {
   color: $secondary;
   border: 2px solid $secondary;
-  padding: 2px 7px;
+  padding: 0px 5px;
   border-radius: 50%;
   opacity: 0.8;
   transition: opacity 0.3s ease;
@@ -57,11 +59,11 @@
 .btn-ghost-2-all:hover {
   color: $secondary;
   border: 2px solid $secondary;
-  padding: 2px 7px;
+  padding: 0px 5px;
   border-radius: 50%;
   opacity: 0.8;
   transition: opacity 0.3s ease;
-  background-color: rgb(246, 166, 150);
+  background-image: image-url('home-wrapper.png');
   color: white;
   text-decoration: none;
   margin-right: 60px;

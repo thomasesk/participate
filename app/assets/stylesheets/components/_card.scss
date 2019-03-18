@@ -14,7 +14,8 @@
 }
 
 .card-description h2 {
-  font-size: 24px;
+  font-size: 16px;
+  margin: 0px;
 }
 
 .card-charity {
@@ -102,3 +103,30 @@
   margin: 10px 0px -10px 0px;
   font-weight: bold;
 }
+
+.card_filter {
+  height: 32px;
+  background-color: white;
+  color: $secondary;
+  text-shadow: none;
+  border-color: $secondary;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card_filter:hover {
+  height: 32px;
+  background-image: image-url('home-wrapper.png');
+  color: white;
+  text-decoration: none;
+}
+
+
+
+// .card-dashboard-footer {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-around;
+// }
+
