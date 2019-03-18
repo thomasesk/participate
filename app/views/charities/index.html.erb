@@ -95,6 +95,7 @@
 
       <div class="cards">
         <div class="row" style='margin-top: 30px;'>
+        <% category = ["Environment", "Education", "Health", "Insertion" ]%>
         <% color = ["#FFD581", "#8ed6ff", "#72e0c0", "#bf9fee" ]%>
         <% @charities.each_with_index do |charity, index| %>
         <div class="col-sm-12 col-md-6">
@@ -106,7 +107,7 @@
                   <h2><%= charity.name %></h2>
                   <p><%= charity.description.split(".")[0] + "." %></p>
                 </div>
-                <span class="badge badge-pill", style="background-color: <%= color[index] %>"><%= charity.category %> </span>
+                <span class="badge badge-pill", style="background-color: <%= color[category.index(charity.category)] %>"><%= charity.category %> </span>
               </div>
             <% end %>
           </div>
