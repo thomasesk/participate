@@ -85,7 +85,6 @@
   color: $secondary;
   padding: 20px;
   margin-top: 50px;
-  border-bottom: 20px solid #5394F5;
 }
 
 .cards-dashboard {
@@ -100,8 +99,14 @@
 }
 
 .card-dashboard-footer .title {
+  font-size: 18px;
   margin: 10px 0px -10px 0px;
   font-weight: bold;
+  text-decoration: none;
+  color: $secondary;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .card_filter {

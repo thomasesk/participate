@@ -20,3 +20,39 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.environment {
+  border: 2px solid $third;
+  color: $third;
+  &:hover {
+    color: white;
+    background: $third;
+  }
+}
+
+.health {
+  border: 2px solid $fourth;
+  color: $fourth;
+  &:hover {
+    color: white;
+    background: $fourth;
+  }
+}
+
+.education {
+  border: 2px solid $fifth;
+  color: $fifth;
+  &:hover {
+    color: white;
+    background: $fifth;
+  }
+}
+
+.insertion {
+  border: 2px solid $sixth;
+  color: $sixth;
+  &:hover {
+    color: white;
+    background: $sixth;
+  }
+}

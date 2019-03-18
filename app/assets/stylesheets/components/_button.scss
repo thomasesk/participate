@@ -79,8 +79,10 @@
   background-color: $secondary;
   color: white;
   border-radius: 3px;
+  opacity: 0.8;
 }
 
-.btn-form-user-cancel {
-  background-color: #DB6C79;
+.btn-form-user:hover {
+  opacity: 1;
+  color: white;
 }
