@@ -24,7 +24,7 @@
 .environment {
   border: 2px solid $third;
   color: $third;
-  &:hover {
+  &:hover, &.active {
     color: white;
     background: $third;
   }
@@ -33,7 +33,7 @@
 .health {
   border: 2px solid $fourth;
   color: $fourth;
-  &:hover {
+  &:hover, &.active {
     color: white;
     background: $fourth;
   }
@@ -42,7 +42,7 @@
 .education {
   border: 2px solid $fifth;
   color: $fifth;
-  &:hover {
+  &:hover, &.active {
     color: white;
     background: $fifth;
   }
@@ -51,7 +51,7 @@
 .insertion {
   border: 2px solid $sixth;
   color: $sixth;
-  &:hover {
+  &:hover, &.active {
     color: white;
     background: $sixth;
   }

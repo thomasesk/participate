@@ -80,7 +80,6 @@
 }
 
 .card-dashboard {
-  // height: 50vh;
   box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.2);
   color: $secondary;
   padding: 20px;
@@ -117,6 +116,7 @@
   border-color: $secondary;
   font-weight: bold;
   text-align: center;
+  position: relative;
 }
 
 .card_filter:hover {
