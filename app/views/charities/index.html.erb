@@ -1,7 +1,6 @@
 <div class="container" style="min-height: calc(100vh - 170px);">
   <div class="search_icon">
-<!--     <i class="fas fa-search"></i>
- --><div class="searchbar">
+    <div class="searchbar">
       <div class="bar">
           <%= form_tag charities_path, method: :get do %>
           <%= text_field_tag :query, params[:query], class: "form-control research", placeholder: "Search" %>
@@ -13,45 +12,47 @@
           <% end %>
       </div>
     </div>
-  </div>
-  <div class="row charities_link">
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <%= link_to charities_path(category: "Education") do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'education.jpg' %>);">
-          <div class="card-description">
-            <h2>Education</h2>
+    <!-- <div class="row charities_link"> -->
+      <div class="col-sm-10 col-md-4 col-lg-2 charities_link">
+        <%= link_to charities_path(category: "Education") do %>
+          <div class="card card_filter">
+            <div class="card-description">
+              <h2>Education</h2>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <%= link_to charities_path(category: "Environment") do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'environment.jpg' %>);">
-          <div class="card-description">
-            <h2>Environment</h2>
+        <% end %>
+      </div>
+      <div class="col-sm-10 col-md-4 col-lg-2 charities_link">
+        <%= link_to charities_path(category: "Environment") do %>
+          <div class="card card_filter">
+            <div class="card-description">
+              <h2>Environment</h2>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <%= link_to charities_path(category: "Insertion") do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'insertion.jpg' %>);">
-          <div class="card-description">
-            <h2>Insertion</h2>
+        <% end %>
+      </div>
+      <div class="col-sm-10 col-md-4 col-lg-2 charities_link">
+        <%= link_to charities_path(category: "Insertion") do %>
+          <div class="card card_filter">
+            <div class="card-description">
+              <h2>Insertion</h2>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <%= link_to charities_path(category: "Health") do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'health.jpg' %>);">
-          <div class="card-description">
-            <h2>Health</h2>
+        <% end %>
+      </div>
+      <div class="col-sm-10 col-md-4 col-lg-2 charities_link">
+        <%= link_to charities_path(category: "Health") do %>
+          <div class="card card_filter">
+            <div class="card-description">
+              <h2>Health</h2>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <!-- </div> -->
+
+
       <div class="cards">
         <div class="row" style='margin-top: 30px;'>
         <% @charities.each do |charity| %>
