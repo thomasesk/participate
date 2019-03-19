@@ -1,0 +1,7 @@
+<h1>New suscription</h1>
+<%= form_tag user_suscriptions_path(@user) do %>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-email="<%= current_user.email %>"
+    </script>
+<% end %>
