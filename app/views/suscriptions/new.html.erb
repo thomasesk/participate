@@ -1,0 +1,17 @@
+<div class="wrapper wrapper-home content", style="background-image: url(<%= asset_path 'home-wrapper.png' %>); height: calc(100vh - 70px);">
+  <div class="sign-content">
+    <h1>Set your donation</h1>
+    <%= form_tag user_suscriptions_path(@user) do %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-email="<%= current_user.email %>">
+        </script>
+        <script>
+        // Hide default stripe button, be careful there if you
+        // have more than 1 button of that class
+        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+        </script>
+        <button type="submit" class="btn btn-ghost btn-form" style='background: rgb(63, 163, 223); color:white; margin-top: 50px;'>Donate</button>
+    <% end %>
+  </div>
+</div>
