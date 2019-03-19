@@ -20,6 +20,8 @@ gem 'carrierwave', '~> 1.2'
 gem "algoliasearch-rails"
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'stripe'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
