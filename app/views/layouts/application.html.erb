@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body style='background-color: white;'>
+  <body style='background-color: white'>
     <%= render 'shared/navbar'  %>
     <%= render 'shared/flashes' %>
 
@@ -18,7 +18,7 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-
     <%= render 'shared/footer' %>
   </body>
+
 </html>
