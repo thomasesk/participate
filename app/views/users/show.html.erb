@@ -1,7 +1,7 @@
 <div class="wrapper", style="background-color: white">
-  <div class="container">
+  <div class="container" style="min-height: calc(100vh - 170px);">
     <div class="total-amount">
-      <div class="total total-label">Total</div>
+      <div class="total total-label">My Total Donation</div>
       <div class="total"><%= @user.total_amount %>$</div>
     </div>
     <div class="progress">
@@ -9,7 +9,7 @@
       <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
       <% @donations.each_with_index do |donation, index| %>
         <% total += donation.share %>
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><%= donation.share * @user.total_amount %>$</div>
       <% end %>
     </div>
     <div class="progress-success">
@@ -33,18 +33,7 @@
                   <div class="carousel-item">
                     <%= cl_image_tag(donation.charity.photo[1], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
                   </div>
-                  <div class="carousel-item">
-                    <%= cl_image_tag(donation.charity.photo[0], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
-                  </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
               </div>
             </div>
             <div class="card-dashboard-footer">

@@ -26,7 +26,7 @@
 }
 
 .charity-img {
-  height: 150px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
 }
@@ -52,11 +52,12 @@
 
 
 .card-charity .card-charity-infos {
-  padding: 15px;
+  padding: 30px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
+  height: 180px;
 }
 
 .card-charity-infos .card-charity-user {
