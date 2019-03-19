@@ -1,26 +1,40 @@
 <div class="wrapper", style="background-color: white">
   <div class="container">
-    <div class="tabs">
-      <a class="tab active" href="#">
-        <h3>My Dashboard</h3>
-      </a>
-      <a class="tab" href="#">
-        <h3>My Historic</h3>
-      </a>
-    </div>
-    <div class="progress">
+    <% unless current_user.donations.empty? %>
+      <div class="tabs">
+        <a class="tab active" href="#">
+          <h3>My Dashboard</h3>
+        </a>
+        <a class="tab" href="#">
+          <h3>My Historic</h3>
+        </a>
+      </div>
+      <div class="progress">
       <% total = 0 %>
       <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
       <% @donations.each_with_index do |donation, index| %>
         <% total += donation.share %>
         <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
       <% end %>
-    </div>
-    <div class="progress-success">
-      <% if total == 100 %>
-          <div class="success-patch center"><strong>100% ✌️</strong></div>
-      <% end %>
-    </div>
+      </div>
+      <div class="progress-success">
+        <% if total == 100 %>
+            <div class="success-patch center"><strong>100% ✌️</strong></div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if current_user.plan_id.nil? %>
+      <div class="isa_error">
+        <!-- <i class="fa fa-times-circle"></i> -->
+        Please add a suscription plan. <br>
+        <%= link_to new_user_suscription_path(current_user) do %>
+          <i class="fas fa-plus-circle" style='color:white; font-size: 20px; margin-top: 3px; color: #D8000C;'></i>
+        <% end %>
+      </div>
+    <% end %>
+
+
     <div class="row cards-dashboard">
       <% @donations.each_with_index do |donation, index| %>
         <div class="col-sm-12 col-md-6 col-lg-3">
