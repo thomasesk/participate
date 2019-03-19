@@ -12,10 +12,10 @@ class SuscriptionsController < ApplicationController
 
   subscription = Stripe::Subscription.create({
     customer: customer.id,
-    items: [{plan: 'plan_Ej70wBG0vIcqGr'}],
+    items: [{plan: params[:plan]}],
   })
 
-  @user.update(stripe_id: customer.id, plan_id: 'plan_Ej70wBG0vIcqGr')
+  @user.update(stripe_id: customer.id, plan_id: params[:plan], total_amount: Stripe::Plan.all[:data][Stripe::Plan.all[:data].map{|k| k[:id] == params[:plan]}.index(true)][:amount] / 100)
   redirect_to user_path(@user)
 
   rescue Stripe::CardError => e

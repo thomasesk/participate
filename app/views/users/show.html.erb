@@ -3,7 +3,7 @@
     <% unless current_user.donations.empty? %>
     <div class="total-amount">
       <div class="total total-label">My Total Donation</div>
-      <div class="total"><%= @user.total_amount %>$</div>
+      <div class="total"><%= @user.total_amount %>€</div>
     </div>
     <div class="progress">
       <% total = 0 %>
@@ -17,6 +17,11 @@
         <% if total == 100 %>
             <div class="success-patch center" style="margin-bottom: 15px"><strong>100% ✌️</strong></div>
         <% end %>
+      </div>
+    <% else %>
+      <div class="total-amount">
+        <div class="total total-label">Donation waiting</div>
+        <div class="total"><%= @user.total_amount %>€</div>
       </div>
     <% end %>
 
