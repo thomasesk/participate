@@ -4,11 +4,13 @@
   <%= cl_image_tag(@charity.photo[3], crop: :fill, class: "picture-show") %>
 </div>
 <div class="container">
+  <% category = ["Environment", "Education", "Health", "Insertion" ]%>
+  <% color = ["#FFD581", "#8ed6ff", "#72e0c0", "#bf9fee" ]%>
   <div class="header-show">
     <div class="charity-name">
       <p><%= @charity.name %></p>
     </div>
-    <span class="badge badge-pill badge-suivre"><%= @charity.category %> </span>
+    <span class="badge badge-pill badge-suivre" style="background-color: <%= color[category.index(@charity.category)] %>"><%= @charity.category %> </span>
 
     <!-- Création d'une donation quand le user appuie sur Suivre -->
     <% exist = 0 %>
@@ -23,12 +25,11 @@
       <% end %>
     <% end %>
   </div>
-
-  <div class="caracteristics">
-    <p><%= @charity.description %></p>
-  </div>
   <div class="bottom_details">
     <%= cl_video_tag(@charity.photo[4], :controls => true, :poster => false, class: "video") %>
+    <div class="caracteristics">
+      <p><%= @charity.description %></p>
+    </div>
     <div class="footer-show">
       <%= link_to 'Présentation complète', @charity.photo[5], target: :_blank, class: "btn-ghost-2" %>
     </div>

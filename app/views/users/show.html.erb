@@ -15,13 +15,13 @@
       </div>
       <div class="progress-success">
         <% if total == 100 %>
-            <div class="success-patch center"><strong>100% ✌️</strong></div>
+            <div class="success-patch center" style="margin-bottom: 15px"><strong>100% ✌️</strong></div>
         <% end %>
       </div>
     <% end %>
 
     <% if current_user.plan_id.nil? %>
-      <div class="isa_error">
+      <div class="isa_error" style="margin: 10px 0px 0px 0px">
         <!-- <i class="fa fa-times-circle"></i> -->
         Please add a suscription plan. <br>
         <%= link_to new_user_suscription_path(current_user) do %>
@@ -84,7 +84,7 @@
                       Thank you so much <i class="fas fa-heart" style='color:red;'></i>
                     </div>
                     <div class="modal-footer">
-                      <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete %>
+                      <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete, class: "btn-ghost-2" %>
                     </div>
                   </div>
                 </div>
