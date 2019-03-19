@@ -9,7 +9,11 @@
           <h3>My Historic</h3>
         </a>
       </div>
-      <div class="progress">
+    <div class="total-amount">
+      <div class="total total-label">Total</div>
+      <div class="total"><%= @user.total_amount %>$</div>
+    </div>
+    <div class="progress">
       <% total = 0 %>
       <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
       <% @donations.each_with_index do |donation, index| %>
@@ -38,7 +42,10 @@
     <div class="row cards-dashboard">
       <% @donations.each_with_index do |donation, index| %>
         <div class="col-sm-12 col-md-6 col-lg-3">
-          <div class="card-dashboard" style="border-bottom: 20px solid <%= color[index] %>;">
+          <div class="card-dashboard" style="border-top: 20px solid <%= color[index] %>;">
+            <button type="button" class="remove" data-toggle="modal" data-target="#modal-<%= donation.id %>">
+              X
+            </button>
             <div class="card-dashboard-header">
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -68,19 +75,19 @@
               </div>
               <div>
                 <%= simple_form_for [@user, donation] do |f| %>
-                  <div class="value" id="value-<%= donation.id %>" style="margin-left: 13px"><%= donation.share %></div>
-                  <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - total + donation.share), step:"5", data: {donation: donation.id } } %>
-                  <div class="form-btns">
-                    <%= f.button :submit, "Update", class: "btn-form-user" %>
-                    <%= link_to "X", user_path(current_user), class: 'btn btn-danger' %>
+                  <div class="pourcentage">
+                    <div class="value" id="value-<%= donation.id %>"><%= donation.share %></div>
+                    <div>%</div>
+                  </div>
+                  <div class="pourcentage-action">
+                    <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - total + donation.share), step:"5", data: {donation: donation.id } } %>
+                    <div class="form-btns update-div">
+                      <%= f.button :submit, 'OK', class: "btn-form-user action positive" %>
+                      <%= link_to "X", user_path(current_user), class: 'btn-form-user action negative' %>
+                    </div>
                   </div>
                 <% end %>
               </div>
-
-              <!-- Button trigger modal -->
-              <button type="button" class="btn-card-user" data-toggle="modal" data-target="#modal-<%= donation.id %>">
-                Unfollow
-              </button>
 
               <!-- Modal -->
               <div class="modal fade" id="modal-<%= donation.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

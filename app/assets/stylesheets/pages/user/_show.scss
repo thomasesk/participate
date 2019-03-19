@@ -3,13 +3,14 @@
 }
 
 .form-btns {
-  margin-bottom: 10px;
+  margin: 0px;
 }
 
 .success-patch {
-  background-color: $secondary;
+  background-color: white;
+  border: 2px solid $secondary;
   border-radius: 3%;
-  color: white;
+  color: $secondary;
   width: 90px;
 }
 
@@ -19,9 +20,85 @@
   margin: 20px 0px -10px 0px;
 }
 
+
 .isa_error {
   color: #D8000C;
   background-color: #FFD2D2;
   margin: 10px 0px;
   padding:12px;
+  
+.pourcentage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .value {
+     margin-left: 13px;
+     width: 30px;
+  }
+}
+
+.remove {
+  position: absolute;
+  top: 38px;
+  right: 3px;
+  border-radius: 50%;
+  background-color: $secondary;
+  color: white;
+  width: 25px;
+  height: 27px;
+  border: 1px solid white;
+}
+
+.total-amount {
+  display: flex;
+  justify-content: center;
+  height: 7vh;
+  font-weight: bold;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: $secondary;
+  opacity: 0.6;
+  flex: 0 0 25%;
+  text-align: center;
+  padding: auto;
+  color: white;
+}
+.total:first-child {
+  border-radius: 2px 0px 0px 2px;
+}
+
+.total:last-child {
+  border-radius: 0px 2px 2px 0px;
+}
+
+.total-label {
+  background: $secondary;
+  color: white;
+  opacity: 1;
+}
+
+.action {
+  padding: 10px;
+  font-size: 12px;
+  width: 35px;
+  height: 35px;
+  border: 0px;
+  radius: 2px;
+}
+
+.positive {
+  background-color: #80e080;
+}
+.negative {
+  background-color: #ea9090;
+}
+
+.pourcentage-action {
+  display: flex;
+  align-items: flex-end;
+  margin: 10px 0px;
 }
