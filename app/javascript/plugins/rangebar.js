@@ -12,4 +12,6 @@ var initInput = function() {
   elem.addEventListener("input", rangeValue);
 })}
 
+
+
 export { initInput };
