@@ -1,6 +1,6 @@
 <div class="wrapper wrapper-home content", style="background-image: url(<%= asset_path 'home-wrapper.png' %>); height: calc(100vh - 70px);">
   <div class="sign-content">
-    <h1 style='margin-bottom: 40px;'>Set your donation</h1>
+    <h1 style='margin-bottom: 40px;'>Change your donation</h1>
     <%= simple_form_for @user, html: { id: "edit_donation"} do |f| %>
         <%= f.input :plan_id, collection: [['5€','plan_EjCCIBijeoq5gk'], ['10€', 'plan_EjCCBu8WwkDCyL'], ['20€', 'plan_Ej70wBG0vIcqGr'], ['50€', 'plan_EjCDl7LcjYhjA9'], ['100€', 'plan_EjCDeVTiviWks3']], label: false %>
     <% end %>
