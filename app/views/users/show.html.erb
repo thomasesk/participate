@@ -35,6 +35,8 @@
       </div>
     <% end %>
 
+    <%= link_to 'Edit plan', suscription_edit_path(@user) %>
+    <%= link_to 'Cancel plan', suscription_destroy_path(@user), method: :delete %>
 
     <div class="row cards-dashboard">
       <% @donations.each_with_index do |donation, index| %>
