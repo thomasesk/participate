@@ -35,8 +35,16 @@
         <%= f.button :submit, "Update", class: 'btn-ghost btn-form' %>
       </div>
     <% end %>
+
     <div class="cancelation">
-      <h3>Cancel my account</h3>
+      <h2>My plan</h2>
+      <p>Your currently donate <%= current_user.total_amount %>€ per month</p>
+      <%= link_to "Change", suscription_edit_path(current_user), class: 'btn-ghost btn-form' %>
+      <%= link_to 'Cancel plan', suscription_destroy_path(@user), method: :delete, class: 'btn-ghost btn-form'%>
+    </div>
+
+    <div class="cancelation">
+      <h2>Cancel my account</h2>
       <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "secondary-link", style: "color: white" %></p>
       <%= link_to "Back", :back, class: "secondary-link", style: "color: white" %>
     </div>
