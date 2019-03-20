@@ -5,7 +5,7 @@
         <%= f.input :plan_id, collection: [['5','plan_EjCCIBijeoq5gk'], ['10', 'plan_EjCCBu8WwkDCyL'], ['20', 'plan_Ej70wBG0vIcqGr'], ['50', 'plan_EjCDl7LcjYhjA9'], ['100', 'plan_EjCDeVTiviWks3']], label: false %>
     <% end %>
     <%= form_tag suscription_update_path(@user) do %>
-      <input type="text" id='plan_params' name="plan" value='' >
+      <input type="text" id='plan_params' name="plan" value='' hidden>
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
         data-email="<%= current_user.email %>">
