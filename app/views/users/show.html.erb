@@ -2,15 +2,15 @@
   <div class="container" style="min-height: calc(100vh - 170px);">
 
     <% if @user.total_amount == 0 %>
-      <div class="isa_error" style="height:60%">
+      <%= link_to new_user_suscription_path(current_user) do %>
+        <div class="isa_error" style="height:60%">
         <!-- <i class="fa fa-times-circle"></i> -->
-        <%= link_to new_user_suscription_path(current_user) do %>
           <div>
             <p>💰 Please add a subscription plan 💰</p>
             <i class="fas fa-plus-circle" style='color:white; font-size: 20px; margin-top: 3px; color: #D8000C;'></i>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% elsif @user.total_amount !=0 && @user.donations.empty? %>
       <div class="total-amount">
         <div class="total total-label">My Pending Donation</div>
@@ -107,14 +107,14 @@
       </div>
     <% else %>
       <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-3">
-          <div class="card-add">
-            <%= link_to charities_path do %>
+        <div class="col-sm-12 col-md-6 col-lg-3 add-charity">
+          <%= link_to charities_path do %>
+            <div class="card-add">
               <div>
                 <i class="fas fa-plus"></i>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
