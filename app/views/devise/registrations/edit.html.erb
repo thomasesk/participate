@@ -1,4 +1,4 @@
-<div class="wrapper wrapper-home content", style="background-image: url(<%= asset_path 'home-wrapper.png' %>); height: 140vh;">
+<div class="wrapper wrapper-home content", style="background-image: url(<%= asset_path 'home-wrapper.png' %>); height: 170vh;">
   <div class="sign-content">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -36,12 +36,20 @@
       </div>
     <% end %>
 
-    <div class="cancelation">
-      <h2>My plan</h2>
-      <p>Your currently donate <%= current_user.total_amount %>€ per month</p>
-      <%= link_to "Change", suscription_edit_path(current_user), class: 'btn-ghost btn-form' %>
-      <%= link_to 'Cancel plan', suscription_destroy_path(@user), method: :delete, class: 'btn-ghost btn-form'%>
-    </div>
+    <% if current_user.total_amount > 0 %>
+      <div class="cancelation">
+        <h2>My plan</h2>
+        <p>Your currently donate <%= current_user.total_amount %>€ per month</p>
+        <%= link_to "Change", suscription_edit_path(current_user), class: 'btn-ghost btn-form' %>
+        <%= link_to 'Cancel plan', suscription_destroy_path(current_user), method: :delete, class: 'btn-ghost btn-form'%>
+      </div>
+    <% else %>
+      <div class="cancelation">
+        <h2>My plan</h2>
+        <p>Oups, you don't have a plan yet !</p>
+        <%= link_to "Add a plan", new_user_suscription_path(current_user), class: 'btn-ghost btn-form' %>
+      </div>
+    <% end %>
 
     <div class="cancelation">
       <h2>Cancel my account</h2>
