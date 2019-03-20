@@ -17,15 +17,27 @@
 .progress-success {
   display: flex;
   justify-content: space-around;
-  margin: 20px 0px -10px 0px;
+  margin: 30px 0px -10px 0px;
 }
 
 
 .isa_error {
-  color: #D8000C;
-  background-color: #FFD2D2;
-  margin: 10px 0px;
-  padding:12px;
+  color: rgba(216,0,12,1);
+  background-color: rgba(255,210,210,.6);
+  margin: 30px 0px;
+  padding: 12px;
+  border: 2px double;
+  a {
+    text-decoration: none;
+  }
+  p {
+    margin: 0;
+    color: rgba(216,0,12,1);
+  }
+  &:hover {
+    opacity: 1;
+    background-color: rgba(255,210,210,1)
+  }
 }
 
 .pourcentage {
