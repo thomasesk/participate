@@ -32,15 +32,14 @@
         <% @donations.each_with_index do |donation, index| %>
           <% total += donation.share %>
           <% if donation.share != 0 %>
-            <div class="progress-bar" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><%= donation.share * @user.total_amount %>€</div>
+            <div class="progress-bar" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><%= (donation.share * @user.total_amount) / 100 %>€</div>
           <% end %>
         <% end %>
-
-        <div class="progress-success">
-          <% if total == 100 %>
-              <div class="success-patch center" style="margin-bottom: 15px"><strong>100% ✌️</strong></div>
-          <% end %>
-        </div>
+      </div>
+      <div class="progress-success">
+        <% if total == 100 %>
+            <div class="success-patch center" style="margin-bottom: 15px"><strong>100% ✌️</strong></div>
+        <% end %>
       </div>
 
       <div class="row cards-dashboard">
