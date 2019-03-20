@@ -1,103 +1,124 @@
 <div class="wrapper", style="background-color: white">
   <div class="container" style="min-height: calc(100vh - 170px);">
-    <% unless current_user.donations.empty? %>
-    <div class="total-amount">
-      <div class="total total-label">My Total Donation</div>
-      <div class="total"><%= @user.total_amount %>€</div>
-    </div>
-    <div class="progress">
-      <% total = 0 %>
-      <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
-      <% @donations.each_with_index do |donation, index| %>
-        <% total += donation.share %>
-        <div class="progress-bar" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><%= donation.share * @user.total_amount %>$</div>
-      <% end %>
-      </div>
-      <div class="progress-success">
-        <% if total == 100 %>
-            <div class="success-patch center" style="margin-bottom: 15px"><strong>100% ✌️</strong></div>
+
+    <% if @user.total_amount == 0 %>
+      <div class="isa_error" style="height:60%">
+        <!-- <i class="fa fa-times-circle"></i> -->
+        <%= link_to new_user_suscription_path(current_user) do %>
+          <div>
+            <p>💰 Please add a subscription plan 💰</p>
+            <i class="fas fa-plus-circle" style='color:white; font-size: 20px; margin-top: 3px; color: #D8000C;'></i>
+          </div>
         <% end %>
+      </div>
+    <% elsif @user.total_amount !=0 && @user.donations.empty? %>
+      <div class="total-amount">
+        <div class="total total-label">My Pending Donation</div>
+        <div class="total"><%= @user.total_amount %>€</div>
       </div>
     <% else %>
       <div class="total-amount">
-        <div class="total total-label">Donation waiting</div>
+        <div class="total total-label">My Donation</div>
         <div class="total"><%= @user.total_amount %>€</div>
       </div>
     <% end %>
 
-    <% if current_user.plan_id.nil? %>
-      <div class="isa_error" style="margin: 10px 0px 0px 0px">
-        <!-- <i class="fa fa-times-circle"></i> -->
-        Please add a suscription plan. <br>
-        <%= link_to new_user_suscription_path(current_user) do %>
-          <i class="fas fa-plus-circle" style='color:white; font-size: 20px; margin-top: 3px; color: #D8000C;'></i>
-        <% end %>
-      </div>
-    <% end %>
+    <% if @user.donations.empty? == false %>
 
-    <div class="row cards-dashboard">
-      <% @donations.each_with_index do |donation, index| %>
-        <div class="col-sm-12 col-md-6 col-lg-3">
-          <div class="card-dashboard" style="border-top: 20px solid <%= color[index] %>;">
-            <button type="button" class="remove" data-toggle="modal" data-target="#modal-<%= donation.id %>">
-              X
-            </button>
-            <div class="card-dashboard-header">
-              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <%= cl_image_tag(donation.charity.photo[2], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
-                  </div>
-                  <div class="carousel-item">
-                    <%= cl_image_tag(donation.charity.photo[1], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
+      <div class="progress">
+        <% total = 0 %>
+        <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
+
+        <% @donations.each_with_index do |donation, index| %>
+          <% total += donation.share %>
+          <% if donation.share != 0 %>
+            <div class="progress-bar" role="progressbar" style="background-color: <%= color[index] %>; width: <%= donation.share %>%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><%= donation.share * @user.total_amount %>€</div>
+          <% end %>
+        <% end %>
+
+        <div class="progress-success">
+          <% if total == 100 %>
+              <div class="success-patch center" style="margin-bottom: 15px"><strong>100% ✌️</strong></div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row cards-dashboard">
+        <% @donations.each_with_index do |donation, index| %>
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card-dashboard" style="border-top: 20px solid <%= color[index] %>;">
+              <button type="button" class="remove" data-toggle="modal" data-target="#modal-<%= donation.id %>">
+                X
+              </button>
+              <div class="card-dashboard-header">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <%= cl_image_tag(donation.charity.photo[2], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
+                    </div>
+                    <div class="carousel-item">
+                      <%= cl_image_tag(donation.charity.photo[1], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="card-dashboard-footer">
-              <div class="title">
-                <%= link_to donation.charity.name, charity_path(donation.charity), class: "title" %>
-              </div>
-              <div>
-                <%= simple_form_for [@user, donation] do |f| %>
-                  <div class="pourcentage">
-                    <div class="value" id="value-<%= donation.id %>"><%= donation.share %></div>
-                    <div>%</div>
-                  </div>
-                  <div class="pourcentage-action">
-                    <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - total + donation.share), step:"5", data: {donation: donation.id } } %>
-                    <div class="form-btns update-div">
-                      <%= f.button :submit, 'OK', class: "btn-form-user action positive" %>
-                      <%= link_to "X", user_path(current_user), class: 'btn-form-user action negative' %>
+              <div class="card-dashboard-footer">
+                <div class="title">
+                  <%= link_to donation.charity.name, charity_path(donation.charity), class: "title" %>
+                </div>
+                <div>
+                  <%= simple_form_for [@user, donation] do |f| %>
+                    <div class="pourcentage">
+                      <div class="value" id="value-<%= donation.id %>"><%= donation.share %></div>
+                      <div>%</div>
                     </div>
-                  </div>
-                <% end %>
-              </div>
+                    <div class="pourcentage-action">
+                      <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - total + donation.share), step:"5", data: {donation: donation.id } } %>
+                      <div class="form-btns update-div">
+                        <%= f.button :submit, 'OK', class: "btn-form-user action positive" %>
+                        <%= link_to "X", user_path(current_user), class: 'btn-form-user action negative' %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
 
-              <!-- Modal -->
-              <div class="modal fade" id="modal-<%= donation.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">It is the end of a beautiful story </h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      Thank you so much <i class="fas fa-heart" style='color:red;'></i>
-                    </div>
-                    <div class="modal-footer">
-                      <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete, class: "btn-ghost-2" %>
+                <!-- Modal -->
+                <div class="modal fade" id="modal-<%= donation.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">It is the end of a beautiful story </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        Thank you so much <i class="fas fa-heart" style='color:red;'></i>
+                      </div>
+                      <div class="modal-footer">
+                        <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete, class: "btn-ghost-2" %>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="card-add">
+            <%= link_to charities_path do %>
+              <div>
+                <i class="fas fa-plus"></i>
+              </div>
+            <% end %>
+          </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
