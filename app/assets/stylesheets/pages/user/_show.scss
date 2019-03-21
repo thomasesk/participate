@@ -142,7 +142,12 @@
   justify-content: center;
   color: $secondary;
   font-size: 48px;
+  display: flex;
+  flex-direction: column;
   p {
     margin: 0px;
+  }
+  p:last-child {
+    font-size: 12px;
   }
 }

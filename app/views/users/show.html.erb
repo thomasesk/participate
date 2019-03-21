@@ -6,9 +6,11 @@
     <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
 
     <div class="capsule">
+      <div class="trait-gauche"></div>
       <%= pie_chart @value, donut: true, colors:  color_donut, height: "200px", width: "200px", library: {cutoutPercentage: 90}, legend: false  %>
       <div class="total-donut">
-        <p><%= @user.total_amount %>€</p>
+        <p><%= @user.total_amount %>€
+        <p>/month</p>
       </div>
     </div>
 
@@ -85,6 +87,7 @@
           <%= link_to charities_path do %>
             <div class="card-add">
               <div>
+                <p>Add your first Charity</p>
                 <i class="fas fa-plus"></i>
               </div>
             </div>

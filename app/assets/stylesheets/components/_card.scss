@@ -89,7 +89,7 @@
 
 .cards-dashboard {
   position: relative;
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 30px 0px;
 }
 
 .card-dashboard-footer {
@@ -131,7 +131,7 @@
 .card-add {
   height: 50vh;
   background-color: rgba(246, 166, 150, .5);
-  margin: 40px 0px;
+  margin: 10px 0px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -144,6 +144,12 @@
   i {
     color: white;
     font-size: 86px;
+  }
+  p {
+    color: white;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 18px;
   }
 }
 
