@@ -1,5 +1,6 @@
 class CharitiesController < ApplicationController
   before_action :set_charity, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def set_charity
     @charity = Charity.find(params[:id])
