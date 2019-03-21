@@ -126,14 +126,17 @@
 
 .capsule {
   height: 200px;
-  width: 200px;
+  width: 230px;
   position: relative;
-  margin: 20px auto;
+  margin: -110px auto 20px auto;
+  background-color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .total-donut {
   height: 200px;
-  width: 200px;
+  width: 230px;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -150,4 +153,10 @@
   p:last-child {
     font-size: 12px;
   }
+}
+
+.trait {
+    border-bottom: 7px solid $secondary;
+    margin-top: 20px;
+    padding-top: 110px;
 }
