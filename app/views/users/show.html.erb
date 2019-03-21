@@ -5,14 +5,17 @@
     <% color_donut = ["#e4e4e4", "#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
     <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
 
-    <div class="capsule">
-      <div class="trait-gauche"></div>
-      <%= pie_chart @value, donut: true, colors:  color_donut, height: "200px", width: "200px", library: {cutoutPercentage: 90}, legend: false  %>
-      <div class="total-donut">
-        <p><%= @user.total_amount %>€
-        <p>/month</p>
+    <div class='banner-show'>
+      <div class="trait"></div>
+      <div class="capsule">
+        <div class="chart"><%= pie_chart @value, donut: true, colors:  color_donut, height: "200px", width: "200px", library: {cutoutPercentage: 90}, legend: false  %></div>
+        <div class="total-donut">
+          <p><%= @user.total_amount %>€
+          <p>/month</p>
+        </div>
       </div>
     </div>
+
 
     <% if @user.total_amount == 0 %>
       <%= link_to "Add a subscription", new_user_suscription_path(current_user), class:"btn-ghost-2" %>
