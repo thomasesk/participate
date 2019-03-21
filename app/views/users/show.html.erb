@@ -1,101 +1,85 @@
 <%= javascript_pack_tag 'chartkick' %>
 <div class="wrapper", style="background-color: white">
-  <div class="container" style="min-height: calc(100vh - 170px);">
+  <div class="container">
+
+    <% color_donut = ["#e4e4e4", "#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
+    <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
+
+    <div class="capsule">
+      <%= pie_chart @value, donut: true, colors:  color_donut, height: "200px", width: "200px", library: {cutoutPercentage: 90}, legend: false  %>
+      <div class="total-donut">
+        <p><%= @user.total_amount %>€</p>
+      </div>
+    </div>
 
     <% if @user.total_amount == 0 %>
-      <%= link_to new_user_suscription_path(current_user) do %>
-        <div class="isa_error" style="height:60%">
-        <!-- <i class="fa fa-times-circle"></i> -->
-          <div>
-            <p>💰 Please add a subscription plan 💰</p>
-            <i class="fas fa-plus-circle" style='color:white; font-size: 20px; margin-top: 3px; color: #D8000C;'></i>
-          </div>
-        </div>
-      <% end %>
-
-    <% elsif @user.total_amount !=0 && @total == 0 %>
-      <div class="total-amount">
-        <div class="total total-label">
-          <span>You have <strong><%= @user.total_amount %>€</strong> to give 😇</span>
-        </div>
-      </div>
+      <%= link_to "Add a subscription", new_user_suscription_path(current_user), class:"btn-ghost-2" %>
     <% end %>
 
-    <% if @user.donations.empty? == false %>
-      <% color_donut = ["#e4e4e4", "#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
-      <% color = ["#F1F06E", "#75d8b8", "#2AE6FF", "#FFBF27"]%>
-      <% if @total != 0 %>
-        <div class="capsule">
-            <%= pie_chart @value, donut: true, colors:  color_donut, height: "200px", width: "200px", library: {cutoutPercentage: 90}, legend: false  %>
-          <div class="total-donut">
-            <p><%= @user.total_amount %>€</p>
-          </div>
-        </div>
-      <% end %>
-      <div class="row cards-dashboard">
-        <% @donations.each_with_index do |donation, index| %>
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card-dashboard" style="border-top: 20px solid <%= color[index] %>;">
-              <button type="button" class="remove" data-toggle="modal" data-target="#modal-<%= donation.id %>">
-                <p>X</p>
-              </button>
-              <div class="card-dashboard-header">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <%= cl_image_tag(donation.charity.photo[2], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
-                    </div>
-                    <div class="carousel-item">
-                      <%= cl_image_tag(donation.charity.photo[1], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
-                    </div>
+    <div class="row cards-dashboard">
+      <% @donations.each_with_index do |donation, index| %>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="card-dashboard" style="border-top: 20px solid <%= color[index] %>;">
+            <button type="button" class="remove" data-toggle="modal" data-target="#modal-<%= donation.id %>">
+              <p>X</p>
+            </button>
+            <div class="card-dashboard-header">
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <%= cl_image_tag(donation.charity.photo[2], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
+                  </div>
+                  <div class="carousel-item">
+                    <%= cl_image_tag(donation.charity.photo[1], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
                   </div>
                 </div>
               </div>
-              <div class="card-dashboard-footer">
-                <div class="title">
-                  <%= link_to donation.charity.name, charity_path(donation.charity), class: "title" %>
-                </div>
-                <div>
-                  <%= simple_form_for [@user, donation] do |f| %>
-                    <div class="pourcentage">
-                      <div class="value" id="value-<%= donation.id %>"><%= donation.share %></div>
-                      <div>%</div>
+            </div>
+            <div class="card-dashboard-footer">
+              <div class="title">
+                <%= link_to donation.charity.name, charity_path(donation.charity), class: "title" %>
+              </div>
+              <div>
+                <%= simple_form_for [@user, donation] do |f| %>
+                  <div class="pourcentage">
+                    <div class="value" id="value-<%= donation.id %>"><%= donation.share %></div>
+                    <div>%</div>
+                  </div>
+                  <div class="pourcentage-action">
+                    <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - @total + donation.share), step:"10", data: {donation: donation.id } } %>
+                    <div class="form-btns update-div">
+                      <%= f.button :submit, 'OK', class: "btn-form-user action positive" %>
+                      <%= link_to "X", user_path(current_user), class: 'btn-form-user action negative' %>
                     </div>
-                    <div class="pourcentage-action">
-                      <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - @total + donation.share), step:"10", data: {donation: donation.id } } %>
-                      <div class="form-btns update-div">
-                        <%= f.button :submit, 'OK', class: "btn-form-user action positive" %>
-                        <%= link_to "X", user_path(current_user), class: 'btn-form-user action negative' %>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
+                  </div>
+                <% end %>
+              </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="modal-<%= donation.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">It is the end of a beautiful story </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        Thank you so much <i class="fas fa-heart" style='color:red;'></i>
-                      </div>
-                      <div class="modal-footer">
-                        <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete, class: "btn-ghost-2" %>
-                      </div>
+              <!-- Modal -->
+              <div class="modal fade" id="modal-<%= donation.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">It is the end of a beautiful story </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Thank you so much <i class="fas fa-heart" style='color:red;'></i>
+                    </div>
+                    <div class="modal-footer">
+                      <%= link_to "Unfollow", user_donation_path(current_user, donation), method: :delete, class: "btn-ghost-2" %>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% else %>
+        </div>
+      <% end %>
+    </div>
+    <% if @donations.empty? %>
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-3 add-charity">
           <%= link_to charities_path do %>
