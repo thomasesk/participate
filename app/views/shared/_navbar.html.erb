@@ -5,9 +5,17 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to 'Charities', charities_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <% if params[:controller] == "charities" && params[:action] == "index" %>
+      <%= link_to 'Charities', charities_path, class: 'navbar-wagon-item navbar-wagon-link', style: "border-bottom: 4px solid #f6a696;" %>
+    <% else %>
+      <%= link_to 'Charities', charities_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <% end %>
     <% if user_signed_in? %>
-      <%= link_to "My donations", user_path(current_user), class: 'navbar-wagon-item navbar-wagon-link' %>
+      <% if params[:controller] == "users" && params[:action] == "show" %>
+        <%= link_to "My donations", user_path(current_user), class: 'navbar-wagon-item navbar-wagon-link', style: "border-bottom: 4px solid #f6a696;"  %>
+      <% else %>
+        <%= link_to "My donations", user_path(current_user), class: 'navbar-wagon-item navbar-wagon-link' %>
+      <% end %>
     <% end %>
 <!--     <%= link_to 'Our Story', root_path, class: 'navbar-wagon-item navbar-wagon-link' %>
  -->
