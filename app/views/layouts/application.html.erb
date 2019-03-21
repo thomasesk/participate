@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Participate. | Donations as it should be</title>
-    <%= favicon_link_tag 'logo-Participate.png' %>
+    <%= favicon_link_tag "logo-Participate.png" %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body style='background-color: white'>
+  <body style='background-color: white;'>
     <%= render 'shared/navbar'  %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class="page-content" style="min-height: calc(100vh - 70px)">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= render 'shared/footer' %>
   </body>
-
 </html>
