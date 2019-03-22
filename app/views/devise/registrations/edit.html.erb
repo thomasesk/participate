@@ -41,13 +41,13 @@
         <h2>My donations</h2>
         <p>Your currently donate <%= current_user.total_amount %>€ per month</p>
         <%= link_to "Change", suscription_edit_path(current_user), class: 'btn-ghost btn-form' %>
-        <%= link_to 'Cancel plan', suscription_destroy_path(current_user), method: :delete, class: 'btn-ghost btn-form'%>
+        <%= link_to 'Cancel', suscription_destroy_path(current_user), method: :delete, class: 'btn-ghost btn-form'%>
       </div>
     <% else %>
       <div class="cancelation">
         <h2>My donations</h2>
         <p>Oups, you don't have a donation plan yet !</p>
-        <%= link_to "Add a plan", new_user_suscription_path(current_user), class: 'btn-ghost btn-form' %>
+        <%= link_to "Add a subscription", new_user_suscription_path(current_user), class: 'btn-ghost btn-form' %>
       </div>
     <% end %>
 
