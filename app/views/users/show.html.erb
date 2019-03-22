@@ -19,6 +19,9 @@
 
     <% if @user.total_amount == 0 %>
       <%= link_to "Add a subscription", new_user_suscription_path(current_user), class:"btn-ghost-2" %>
+    <% else %>
+        <%= link_to "Change", suscription_edit_path(current_user), class: 'btn-ghost-2' %>
+        <%= link_to 'Cancel', suscription_destroy_path(current_user), method: :delete, class: 'btn-ghost-2'%>
     <% end %>
 
     <div class="row cards-dashboard">
@@ -29,16 +32,7 @@
               <p>X</p>
             </button>
             <div class="card-dashboard-header">
-              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <%= cl_image_tag(donation.charity.photo[2], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
-                  </div>
-                  <div class="carousel-item">
-                    <%= cl_image_tag(donation.charity.photo[1], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
-                  </div>
-                </div>
-              </div>
+              <%= cl_image_tag(donation.charity.photo[2], :height=>150, :crop=>"scale", class: "dashboard-img d-block w-100", src:"...", alt:"First slide") %>
             </div>
             <div class="card-dashboard-footer">
               <div class="title">
