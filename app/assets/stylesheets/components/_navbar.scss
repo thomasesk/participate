@@ -45,9 +45,10 @@
 /* Navbar link */
 .navbar-wagon-link {
   font-size: 16px;
+  opacity: 0.8;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  opacity: 1;
   text-decoration: none;
 }
 
@@ -84,8 +85,10 @@
 
 .navbar-2 a {
   color: white;
+  opacity: 0.8;
 }
 
-#sign_in_button:hover {
-  color: #da552f;
+.navbar-2 a:hover {
+  color: white;
+  opacity: 1;
 }
