@@ -45,10 +45,8 @@
                     <div>%</div>
                   </div>
                   <div class="pourcentage-action">
-                    <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - @total + donation.share), step:"10", data: {donation: donation.id } } %>
+                    <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - @total + donation.share), step:"10", data: {donation: donation.id }, class: "share_donation_input" } %>
                     <div class="form-btns update-div">
-                      <%= f.button :submit, 'OK', class: "btn-form-user action positive" %>
-                      <%= link_to "X", user_path(current_user), class: 'btn-form-user action negative' %>
                     </div>
                   </div>
                 <% end %>
