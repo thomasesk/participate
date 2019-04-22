@@ -84,7 +84,11 @@
   box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.2);
   color: $secondary;
   padding: 20px;
-  margin-top: 50px;
+  margin: 50px 10px 0px 10px;
+}
+
+.cards-dashboard::last-child {
+    margin-right: 0px;
 }
 
 .cards-dashboard {
@@ -101,7 +105,7 @@
 
 .card-dashboard-footer .title {
   font-size: 18px;
-  margin: 10px 0px -10px 0px;
+  margin: 15px 0px -15px 0px;
   font-weight: bold;
   text-decoration: none;
   color: $secondary;

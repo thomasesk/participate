@@ -1,22 +1,15 @@
 .value {
-  border-bottom: 1px dashed #bdc3c7;
+  margin-right: 1px;
   text-align: center;
   font-weight: bold;
-  font-size: 24px;
-  width: 80%;
-  line-height: 60px;
-  margin: 5px 0px;
-  letter-spacing: -.07em;
-  text-shadow: white 2px 2px 2px;
+  font-size: 20px;
 }
 input[type="range"] {
   display: block;
   -webkit-appearance: none;
-  background-color: #bdc3c7;
-  width: 80%;
+  background-color: #bdc3c780;
   height: 5px;
   border-radius: 5px;
-  margin: 0 auto;
   outline: 0;
 }
 input[type="range"]::-webkit-slider-thumb {

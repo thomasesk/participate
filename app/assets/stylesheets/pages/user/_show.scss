@@ -26,45 +26,25 @@
   text-decoration: none;
 }
 
-.isa_error {
-  border-radius: 1%;
-  color: rgba(216,0,12,1);
-  background-color: rgba(255,210,210,.6);
-  margin: 30px 0px;
-  padding: 12px;
-  border: 2px double;
-  p {
-    font-size: 16px;
-    margin: 0;
-    color: rgba(216,0,12,1);
-    margin-bottom: 5px;
-  }
-  &:hover {
-    opacity: 1;
-    background-color: rgba(255,210,210,1)
-  }
-}
 
 .pourcentage {
   display: flex;
   align-items: center;
   justify-content: center;
   .value {
-     margin-left: 13px;
-     width: 30px;
+    font-size: 20px;
   }
 }
 
 .remove {
   position: absolute;
   top: 38px;
-  right: 3px;
+  right: 10px;
   border-radius: 50%;
-  background-color: #b3a1a1;
-  color: white;
+  color: #8080808c;
   width: 25px;
   height: 25px;
-  border: 1px solid white;
+  border: 1px solid #8080808c;
   p {
     margin-top: 2px;
     font-size: 12px;
@@ -121,7 +101,7 @@
 .pourcentage-action {
   display: flex;
   align-items: flex-end;
-  margin: 10px 0px;
+  margin: 10px 0px 5px 0px;
 }
 
 .capsule {
@@ -159,4 +139,13 @@
     border-bottom: 7px solid $secondary;
     margin-top: 20px;
     padding-top: 110px;
+}
+
+.simple_form {
+  margin-top: 40px;
+}
+
+.explication {
+  font-size: 12px;
+  font-style: italic;
 }
