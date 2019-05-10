@@ -133,7 +133,8 @@
 }
 
 .card-add {
-  height: 50vh;
+  height: 40vh;
+  width: 15vw;
   background-color: rgba(246, 166, 150, .5);
   margin: 10px 0px;
   padding: 20px;
@@ -141,7 +142,7 @@
   flex-direction: column;
   justify-content: center;
   border: 2px solid $secondary;
-  border-radius: 1%;
+  border-radius: 3%;
   &:hover {
     background-color: rgba(246, 166, 150, .7);
   }

@@ -21,7 +21,7 @@
       <%= link_to "Dashboard 😎", user_path(current_user), class: "btn-ghost-2" %>
     <% else %>
       <%= simple_form_for ([@charity, @donation]) do |f| %>
-        <%= f.submit "Give 😍", class: "btn-ghost-2" %>
+        <%= f.submit "Give 😍", class: "btn-ghost-2 give-btn" %>
       <% end %>
     <% end %>
   </div>
