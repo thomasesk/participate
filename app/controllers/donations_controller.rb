@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   def set_donation
     @donation = Donation.find(params[:id])
@@ -28,6 +29,19 @@ class DonationsController < ApplicationController
 
   def edit
   end
+
+  # def update
+  #   respond_to do |format|
+  #     format.html {
+  #       @donation.update(donation_params)
+  #       @donation.save
+  #       redirect_to user_path(current_user.id),
+  #       notice: 'Donation was successfully updated.'
+  #     }
+  #     format.js
+  #     format.json { render json: @donation }
+  #   end
+  # end
 
   def update
     @donation.update(donation_params)
