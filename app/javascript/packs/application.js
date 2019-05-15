@@ -6,6 +6,3 @@ import { initShareDonation } from '../components/share_donation';
 initInput();
 initFormDonation();
 initShareDonation();
-
-
-
