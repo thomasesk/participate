@@ -42,8 +42,7 @@
                 <%= simple_form_for([@user, donation], remote: true) do |f| %>
                   <div class="pourcentage-action">
                     <%= f.input :share, :as => "range", label: false, input_html: { min:"0", max: (100 - @total + donation.share), step:"10", data: {donation: donation.id }, class: "share_donation_input" } %>
-                    <div class="form-btns update-div">
-                    </div>
+                    <div class="form-btns update-div"></div>
                   </div>
                   <div class="pourcentage">
                     <div class="value" id="value-<%= donation.id %>"><%= donation.share %></div>
