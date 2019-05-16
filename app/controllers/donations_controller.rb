@@ -30,24 +30,20 @@ class DonationsController < ApplicationController
   def edit
   end
 
-  # def update
-  #   respond_to do |format|
-  #     format.html {
-  #       @donation.update(donation_params)
-  #       @donation.save
-  #       redirect_to user_path(current_user.id),
-  #       notice: 'Donation was successfully updated.'
-  #     }
-  #     format.js
-  #     format.json { render json: @donation }
-  #   end
-  # end
-
   def update
     @donation.update(donation_params)
     @donation.save
-    redirect_to user_path(current_user.id)
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user.id) }
+      format.js
+    end
   end
+
+  # def update
+  #   @donation.update(donation_params)
+  #   @donation.save
+  #   redirect_to user_path(current_user.id)
+  # end
 
   def destroy
     @donation.destroy
