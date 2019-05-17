@@ -46,14 +46,19 @@
 }
 
 .btn-ghost-2-all {
+  margin-left: 3px;
+  font-weight: bold;
   color: $secondary;
   border: 2px solid $secondary;
-  padding: 0px 5px;
+  padding: 0px 6px;
   border-radius: 50%;
   opacity: 0.8;
   transition: opacity 0.3s ease;
   margin-right: 75px;
   font-size: 15px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .btn-ghost-2-all:hover {

@@ -2,14 +2,15 @@
   <div class="search_icon">
     <div class="searchbar">
       <div class="bar">
-          <%= form_tag charities_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control research", placeholder: "Search" %>
+          <%= form_tag charities_path, method: :get, action: "/charities", class: "form-search form-inline" do %>
+            <%= text_field_tag :query, params[:query], class: "form-control research", placeholder: "Search" %>
+            <% if params[:query].present? %>
+              <%= link_to "X", charities_path, class: "btn-ghost-2-all cross", remote: true %>
+            <% end %>
           <% end %>
       </div>
       <div class="all">
-          <% if params[:query].present? %>
-            <%= link_to "X", charities_path, class: "btn-ghost-2-all"%>
-          <% end %>
+
       </div>
     </div>
     <!-- <div class="row charities_link"> -->
