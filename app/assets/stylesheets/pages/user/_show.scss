@@ -45,6 +45,9 @@
   width: 25px;
   height: 25px;
   border: 1px solid #8080808c;
+  &:focus {
+    outline: none;
+  }
   p {
     margin-top: 2px;
     font-size: 12px;
