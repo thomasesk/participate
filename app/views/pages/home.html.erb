@@ -9,7 +9,73 @@
       <% end %>
   </div>
 </div>
-<div class="wrapper-intro" style="background-color: #F9F9F9">
+
+<div class="wrapper-intro-2 frames", style="background-image: url(<%= asset_path 'home-wrapper.png' %>); background: linear-gradient(90deg, #efbe90, #ea9999)";>
+
+  <div class="frame">
+    <div class="frame-title">
+      <p>It all starts with a monthly donation</p>
+    </div>
+    <div class="frame-content">
+      <div class="img-frame">
+        <%= image_tag("subscription.png", :alt => "subscription", :class => "logo-home") %>
+      </div>
+      <ul>
+        <li class="frame-list">Pick your monthly subsciption plan, between 5€ and 50€.</li>
+        <li class="frame-list">No worries, you can change or cancel your plan, anytime.</li>
+        <li class="frame-list">Split your plan among your chairites as you wish.</li>
+      </ul>
+    </div>
+    <div class="frame-btn">
+      <%= link_to "Get your subscription", new_user_suscription_path(current_user), class: "btn-ghost-2" %>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-title">
+      <p>Lay back, we make sur your donation will be impactful</p>
+    </div>
+    <div class="frame-content">
+      <div class="img-frame">
+        <%= image_tag("balance.png", :alt => "subscription", :class => "logo-home") %>
+      </div>
+      <ul>
+        <li class="frame-list">All the charities you'll find here have been certified.</li>
+        <li class="frame-list">The money will go to the projet you want to help for.</li>
+        <li class="frame-list">They are organized by category, support one or many.</li>
+      </ul>
+    </div>
+    <div class="frame-btn">
+      <%= link_to "See our charities", charities_path, class: "btn-ghost-2" %>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-title">
+      <p>Transparency is what you pay for, we owe it you</p>
+    </div>
+    <div class="frame-content">
+      <div class="img-frame">
+        <%= image_tag("pick-charities.png", :alt => "subscription", :class => "logo-home", :style => "margin-top: -5px") %>
+      </div>
+      <ul>
+        <li class="frame-list">You'll get updates on your impact, be it good or bad news.</li>
+        <li class="frame-list">92% of your donation goes to your charitie(s).</li>
+        <li class="frame-list">The rest is for us to grow and be even more impactful.</li>
+      </ul>
+    </div>
+    <div class="frame-btn">
+      <% if user_signed_in? %>
+        <%= link_to "Manage your donations", user_path(current_user), class: "btn-ghost-2" %>
+      <% else %>
+        <%= link_to "Sign up !", new_user_registration_path, class: "btn-ghost-2" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<!-- <div class="wrapper-intro" style="background-color: #F9F9F9">
   <div class="container">
     <p class="title-steps title-one">Simple</p>
     <div class="row steps">
@@ -44,6 +110,8 @@
     <p class="title-steps title-three">Transparent</p>
   </div>
 </div>
+ -->
+
 <!-- <div class="wrapper", style="background-image: url(<%= asset_path 'wraper1-home.png' %>); height: 115vh;">
 </div>
 <div class="wrapper", style="background-image: url(<%= asset_path 'wraper2-home.png' %>); height: 115vh; ">
