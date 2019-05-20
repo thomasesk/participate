@@ -27,7 +27,12 @@
       </ul>
     </div>
     <div class="frame-btn">
-      <%= link_to "Get your subscription", new_user_suscription_path(current_user), class: "btn-ghost-2" %>
+      <% if user_signed_in? %>
+        <%= link_to "Get your subscription", new_user_suscription_path(current_user), class: "btn-ghost-2" %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "btn-ghost-2" %>
+      <% end %>
+
     </div>
   </div>
 
